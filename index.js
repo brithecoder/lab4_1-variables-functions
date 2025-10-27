@@ -65,3 +65,25 @@ function checkEligibility(age, isEmployed){
 console.log(checkEligibility(20,true)); // Output: "Eligible."
 console.log(checkEligibility(16,true)); // Output: "Not eligible: Must be at least 18 years old."
 console.log(checkEligibility(22,false)); // Output: "Conditionally eligible."
+
+
+//Refactoring for Reusability
+
+//decaration of variables
+let discountRate;
+
+//define function
+function totalCostWithDiscount(price, quantity, taxRate, discountRate){
+    if(!discountRate || discountRate <= 0){
+        return calculateTotalCost(price, quantity, taxRate);
+}else {
+        const totalCost = price * quantity;
+        const totalCostWithDiscount = totalCost - (totalCost * (discountRate / 100));
+        const taxAmount = totalCostWithDiscount * (taxRate / 100);
+        const finalCost = totalCostWithDiscount + taxAmount;
+        return finalCost.toFixed(2);
+    }
+}
+//Invoke the function 
+  console.log((totalCostWithDiscount(5,3,7.8,10))); // Output: Total cost with 10% discount
+  console.log((totalCostWithDiscount(5,3,7.8,0))); // Output: Total cost without discount using calculateTotalCost function
