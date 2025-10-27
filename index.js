@@ -41,4 +41,27 @@ function calculateTotalCost(price, quantity, taxRate){
         return totalCost.toFixed(2); //returning total cost rounded to 2 decimal places
     }
 }
-// console.log(calculateTotalCost(5,3,7.8)); 
+console.log(calculateTotalCost(5,3,7.8)); 
+
+//Function with Conditional Logic
+
+//Declaration of variables
+let age;
+let isEmployed;
+let eligibleAge = 18;
+ 
+// Define functions
+
+function checkEligibility(age, isEmployed){
+   if (age < eligibleAge){
+         return 'Not eligible: Must be at least 18 years old.';
+   }else if (age >= eligibleAge && !isEmployed){
+            return 'conditonally eligible.';
+   }else{
+            return 'Eligible.';
+   }
+}
+// Invoke the function
+console.log(checkEligibility(20,true)); // Output: "Eligible."
+console.log(checkEligibility(16,true)); // Output: "Not eligible: Must be at least 18 years old."
+console.log(checkEligibility(22,false)); // Output: "Conditionally eligible."
